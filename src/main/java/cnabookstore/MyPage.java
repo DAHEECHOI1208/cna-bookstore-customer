@@ -22,6 +22,36 @@ public class MyPage {
     private String customerName;
         private String orderStatus;
         private Long orderId;
+
+    public Long getPointId() {
+        return pointId;
+    }
+
+    public void setPointId(Long pointId) {
+        this.pointId = pointId;
+    }
+
+    private Long pointId;
+
+    public Integer getPointValue() {
+        return pointValue;
+    }
+
+    public void setPointValue(Integer pointValue) {
+        this.pointValue = pointValue;
+    }
+
+    private Integer pointValue;
+
+    public String getPointUseYn() {
+        return pointUseYn;
+    }
+
+    public void setPointUseYn(String pointUseYn) {
+        this.pointUseYn = pointUseYn;
+    }
+
+    private String pointUseYn;
         private Long bookId;
         private String deliveryStatus;
         private Integer quantity;

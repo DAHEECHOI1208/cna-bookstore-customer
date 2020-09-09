@@ -38,6 +38,9 @@ public class MyPageViewHandler {
                 myPage.setCustomerName(loadCustomerName.get().getCustomerName());
                 myPage.setOrderId(ordered.getOrderId());
                 myPage.setBookId(ordered.getBookId());
+                myPage.setPointId(ordered.getPointId());
+                myPage.setPointValue(ordered.getPointValue());
+                myPage.setPointUseYn(ordered.getPointUseYn());
                 myPage.setQuantity(ordered.getQuantity());
                 myPage.setDeliveryAddress(ordered.getDeliveryAddress());
                 myPage.setOrderStatus(ordered.getOrderStatus());
@@ -99,8 +102,7 @@ public class MyPageViewHandler {
                     myPageRepository.save(myPage);
                 }
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
 
 //        try {
@@ -113,6 +115,25 @@ public class MyPageViewHandler {
 //        }
         }
     }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenPointChanged_then_UPDATE_4 (@Payload PointChanged pointChanged) {
+        try {
+            if (pointChanged.isMe()) {
+                // view 객체 조회
+                List<MyPage> myPageList = myPageRepository.findByOrderId(pointChanged.getOrderId());
+                for (MyPage myPage : myPageList) {
+                    // view 객체에 이벤트의 Value 를 set 함
+                    myPage.setPointValue(pointChanged.getPointValue());
+                    // view 레파지 토리에 save
+                    myPageRepository.save(myPage);
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 
 

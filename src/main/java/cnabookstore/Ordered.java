@@ -5,10 +5,50 @@ public class Ordered extends AbstractEvent {
 
     private Long orderId;
     private Long bookId;
+
+    public Long getPointId() {
+        return pointId;
+    }
+
+    public void setPointId(Long pointId) {
+        this.pointId = pointId;
+    }
+
+    private Long pointId;
     private Long customerId;
     private Integer quantity;
+
+    public Integer getPointValue() {
+        return pointValue;
+    }
+
+    public void setPointValue(Integer pointValue) {
+        this.pointValue = pointValue;
+    }
+
+    private Integer pointValue;
+
+    public String getPointUseYn() {
+        return pointUseYn;
+    }
+
+    public void setPointUseYn(String pointUseYn) {
+        this.pointUseYn = pointUseYn;
+    }
+
+    private String pointUseYn;
     private String deliveryAddress;
     private String orderStatus;
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    private String customerName;
 
 
     public Long getOrderId() {

@@ -8,7 +8,8 @@ import java.util.List;
 public interface MyPageRepository extends CrudRepository<MyPage, Long> {
 
 	List<MyPage> findByOrderId(Long orderId);
+//    List<MyPage> findByCustomerName(String customerName);
 
-//    void deleteByDeliveryId(Long deliveryId);
+    //    void deleteByDeliveryId(Long deliveryId);
     void deleteByOrderId(Long orderId);
 }
