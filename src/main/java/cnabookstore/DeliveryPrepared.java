@@ -5,6 +5,7 @@ public class DeliveryPrepared extends AbstractEvent {
 
     private Long id;
     private Long orderId;
+    private Long orderOwnerId;
     private String status;
 
     public Long getId() {
