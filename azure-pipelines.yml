@@ -107,7 +107,7 @@ stages:
                             - containerPort: 8080
                           readinessProbe:
                             httpGet:
-                              path: /actuator/healthy
+                              path: /actuator/health
                               port: 8080
                             initialDelaySeconds: 10
                             timeoutSeconds: 2
